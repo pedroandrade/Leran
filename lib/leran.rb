@@ -53,7 +53,7 @@ class Leran
 	def moveFile( from,to,file,ext )
 		@@fileTypes.each_key do | type |
 			if @@fileTypes[type].include? ext
-				puts "\tMoving: #{file.slice(0,20)}... | Type: #{type}" 
+				puts "\tCopying: #{file.slice(0,20)}... | Type: #{type}" 
 				
 				# First: Create the folder for type
 				# Second: Create the folder for extension			
@@ -61,7 +61,7 @@ class Leran
 				FileUtils::mkdir_p( "#{to}/#{type}" ) if !File.exists? "#{to}/#{type}"
 				FileUtils::mkdir_p( "#{to}/#{type}/#{ext}" ) if !File.exists? "#{to}/#{type}/#{ext}"
 
-				FileUtils::mv "#{from}/#{file}", "#{to}/#{type}/#{ext}"
+				FileUtils::cp "#{from}/#{file}", "#{to}/#{type}/#{ext}"
 
 				@qtMoveds += 1
 			end			
