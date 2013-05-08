@@ -59,9 +59,9 @@ class Leran
 				# Second: Create the folder for extension			
 
 				FileUtils::mkdir_p( "#{to}/#{type}" ) if !File.exists? "#{to}/#{type}"
-				FileUtils::mkdir_p( "#{to}/#{type}/F#{ext}" ) if !File.exists? "#{to}/#{type}/F#{ext}"
+				FileUtils::mkdir_p( "#{to}/#{type}/#{ext}" ) if !File.exists? "#{to}/#{type}/#{ext}"
 
-				FileUtils::mv "#{from}/#{file}", "#{to}/#{type}/F#{ext}"
+				FileUtils::mv "#{from}/#{file}", "#{to}/#{type}/#{ext}"
 
 				@qtMoveds += 1
 			end			
